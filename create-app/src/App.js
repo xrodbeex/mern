@@ -1,22 +1,25 @@
 import React from 'react';
 import './App.css';
-import Product from './components/Product';
+import PersonCard from './components/PersonCard';
 
 function App() {
   return (
     <div className="App">
-      <Product 
-        title={"Dehydrated Water"}
-        desc={"Just add 2 cups of water"}
-        cost={ 49.99 } />
-      <Product 
-        title={"Toy Car"}
-        desc={"Made out of legos"}
-        cost={ 19.99 } />
-      <Product 
-        title={"Ipad"}
-        desc={"Really expensive toy"}
-        cost={ 499.99 } />
+      <PersonCard 
+        firstName={"Jane"}
+        lastName={"Doe"}
+        age={18}
+        hairColor={"black"}/>
+      <PersonCard 
+        firstName={"Smith"}
+        lastName={"John"}
+        age={88}
+        hairColor={"brown"}/>
+      <PersonCard 
+        firstName={"Maria"}
+        lastName={"Smith"}
+        age={62}
+        hairColor={"black"}/>
     </div>
   );
 }
