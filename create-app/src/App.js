@@ -1,24 +1,13 @@
 import React from 'react';
 import './App.css';
-import PuttingIt from './components/PuttingIt';
+import HookForm from './components/HookForm';
 
-//Putting it together
+
 function App() {
   return (
     <div className="App">
-      <PuttingIt
-        firstName={"Jane"}
-        lastName={"Doe"}
-        hairColor={"Black"}
-        initialAge={30}
-        />
-      <PuttingIt
-        firstName={"John"}
-        lastName={"Smith"}
-        hairColor={"Brown"}
-        initialAge={25}
-        />
-    </div>
+      <HookForm />
+        </div>
   );
 }
 
