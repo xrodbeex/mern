@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 
 const PersonCard = (props) => {
-    const [ inStock, setInStock ] = useState(5);
+    const [ inStock, setInStock ] = useState(props.initialStock);
     return (
         <div>
             <h2>{ props.lastName }, { props.firstName }</h2>
