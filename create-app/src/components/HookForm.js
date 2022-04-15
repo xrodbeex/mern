@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const hookForm = (props) => {
+const HookForm = (props) => {
     const [ firstName, setFirstName ] = useState("");
     const [ lastName, setLastName ] = useState("");
     const [ email, setEmail ] = useState("");
@@ -21,9 +21,10 @@ const hookForm = (props) => {
         margin: "5px",
     }
 
+
     return (
         <div>
-            <form style={{ marginTop: "20px"}}>
+            <form onSubmit={() => {}} style={{ marginTop: "20px"}}>
                 <div style={inputData}>
                     <label htmlFor="firstName">First Name</label>
                     <input 
@@ -32,6 +33,9 @@ const hookForm = (props) => {
                         onChange={ (e) => setFirstName(e.target.value) }
                     />
                 </div>
+                {firstName.length < 2 && firstName.length > 0 ? (
+                    <p>First Name must be at least 2 characters</p>
+                ) : null}
                 <div style={inputData}>
                     <label htmlFor="lastName">Last Name</label>
                     <input 
@@ -40,6 +44,9 @@ const hookForm = (props) => {
                         onChange={ (e) => setLastName(e.target.value) }
                     />
                 </div>
+                {lastName.length < 2 && lastName.length > 0 ? (
+                    <p>Last Name must be at least 2 characters</p>
+                ) : null}
                 <div style={inputData}>
                     <label htmlFor="email">Email</label>
                     <input
@@ -48,6 +55,9 @@ const hookForm = (props) => {
                         onChange={ (e) => setEmail(e.target.value) }
                     />
                 </div>
+                {email.length < 2 && email.length > 0 ? (
+                    <p>Email must be at least 2 characters</p>
+                ) : null}
                 <div style={inputData}>
                     <label htmlFor="password">Password</label>
                     <input
@@ -56,6 +66,11 @@ const hookForm = (props) => {
                         onChange={ (e) => setPassword(e.target.value) }
                     />
                 </div>
+                {password.length < 2 && password.length > 0 ? (
+                    <p>Password must be at least 8 charaters</p>
+                ) : null}
+                {password !== confirmPassword ? 
+                    <p>Password and Confirm password must match</p> : null}
                 <div style={inputData}>
                     <label htmlFor="confirmPassword">Confirm Password</label>
                     <input
@@ -85,5 +100,8 @@ const hookForm = (props) => {
             </div>
         </div>
     )
-}
-export default hookForm;
+};
+
+
+
+export default HookForm;
