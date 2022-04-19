@@ -5,7 +5,7 @@ const Display = (props) => {
     return (
         <div>
             {
-                boxColorArray.Array.map((color, index) => (
+                boxColorArray.map((color, index) => (
                     <div key={index} style={{
                         display: "inline-block",
                         margin: "10px",
