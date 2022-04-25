@@ -1,32 +1,54 @@
 import React, { useState } from 'react';
-import Tabs from './components/Tabs';
-import Results from './components/Results';
 import './App.css';
 
 
 function App() {
-  const tabsArray = [
-    { label: "Tab 1", content: "Tab 1 content is showing here"},
-    { label: "Tab 2", content: "Tab 2 content is showing here"},
-    { label: "Tab 3", content: "Tab 3 content is showing here"},
-    { label: "Tab 4", content: "Tab 4 content is showing here"},
-  ];
+  const [newTodo, setNewTodo ] = useState("");
+  const [todos, setTodos] = useState([]);
 
-  const [ allTabs, setAllTabs ] = useState(tabsArray);
+  const handleNewTodoSubmit = (event) => {
+    event.preventDefault();
 
-  const [ currentTabIndex, setCurrentTabIndex ] = useState(0);
+    setTodos([... todos, newTodo]);
+    setNewTodo("");
+  };
+
+  const handleTodoDelete = (delIdx) => {
+    
+  }
 
   return (
-    <div className="App">
-      <Tabs
-        allTabs={ allTabs }
-        currentTabIndex={ currentTabIndex }
-        setCurrentTabIndex={ setCurrentTabIndex }
-      />
-    <Results allTabs={ allTabs } currentTabIndex={ currentTabIndex } />
+    <div style={{textAlign: 'center'}}>
+      <form 
+        onSubmit={(event) => {
+          handleNewTodoSubmit(event);
+        }}
+      >
+        <input 
+          onChange={(event) => {
+            setNewTodo(event.target.value);
+        }}
+          type="text"
+          value={newTodo}
+        />
+        <div>
+          <button>Add</button>
+        </div>
+      </form>
+
+      {todos.map((todo, i) => {
+        return (
+          <div key={i}>
+            <span>{todo}</span>
+            <button onClick={(event) => {
+              handleTodoDelete(i);
+            }}>Delete</button>
+          </div>
+        );
+      })}
     </div>
   );
-  }
+}
 
 
 
