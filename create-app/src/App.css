@@ -1,11 +1,5 @@
-.line-through {
-  text-decoration: line-through;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-.italic {
-  font-style: italic;
+* {
+  margin: 0px auto;
+  align-items: center;
+  text-align: center;
 }
