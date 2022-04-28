@@ -1,56 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import './App.css';
 
-function App() {
-  const [pokeApiData, setPokeApiData] = useState([]);
-  useEffect(() => {
-    axios
-      .get("https://pokeapi.co/api/v2/pokemon?limit=807")
-      .then((response) => {
-        console.log(response.data.results);
-        setPokeApiData(response.data.results);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-  return (
-    <div className="App">
-      <h1>Axios Pokemon API Assignment</h1>
-      <ul>
-        {pokeApiData.map((pokemon, index) => (
-          <li key={index}>{pokemon.name}</li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-
-
-
-
-export default App;
-
-
-/*
-function App() {
-    const [pokemon, setPokemon] = useState([]);
-
-    useEffect(() => {
-      fetch('https://pokeapi.co/api/v2/pokemon')
-        .then(response => response.json())
-        .then(response => setPokemon(response.results))
-    }, []);
-
-    return (
-      <div>
-        {pokemon.length > 0 && pokemon.map((poke, index) => {
-          return (<div key={index}>{poke.name}</div>)
-        })}
-      </div>
-    );
-}
-*/
 
 
 
@@ -58,10 +8,6 @@ function App() {
 
 
 
-
-
-
-/*
 function App() {
   const [newTodo, setNewTodo ] = useState("");
   const [todos, setTodos] = useState([]);
@@ -152,7 +98,6 @@ function App() {
     </div>
   );
 }
-*/
 
 
 
@@ -163,38 +108,7 @@ function App() {
 
 
 
-
-/*
-PersonCard
-function App() {
-  return (
-    <div className="App">
-      <PersonCard 
-        firstName={"Jane"}
-        lastName={"Doe"}
-        age={18}
-        hairColor={"black"}
-        initialStock={20}
-        />
-      <PersonCard 
-        firstName={"Smith"}
-        lastName={"John"}
-        age={88}
-        hairColor={"brown"}
-        initialStock={10}
-        />
-      <PersonCard 
-        firstName={"Maria"}
-        lastName={"Smith"}
-        age={62}
-        hairColor={"black"}
-        initialStock={7}
-        />
-    </div>
-  );
-}
-*/
-
+export default App;
 
 
 
